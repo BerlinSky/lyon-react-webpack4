@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 // const nodeExternals = require('webpack-node-externals');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+// const HtmlWebPackPlugin = require("html-webpack-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -16,8 +16,8 @@ const cleanWebPackPlugin = new CleanWebpackPlugin([path.resolve(__dirname, 'dist
 const entryConfig = {
   vendor: ['jquery', 'ramda'],
   main: [
-    path.resolve(__dirname, 'app/js/main.js'),
-    path.resolve(__dirname, 'app/sass/main.scss')
+    path.resolve(__dirname, 'src/index.js'),
+    // path.resolve(__dirname, 'app/sass/main.scss')
   ]
 }
 
@@ -193,12 +193,12 @@ module.exports = {
       // filename: "main.[contenthash].css"
     }),
 
-    new HtmlWebPackPlugin({
-      favicon: 'app/favicon.png',
-      // hash: true,
-      template: './app/index.html',
-      filename: 'index.html',
-    }),
+    // new HtmlWebPackPlugin({
+    //   favicon: 'app/favicon.png',
+    //   // hash: true,
+    //   template: './app/index.html',
+    //   filename: 'index.html',
+    // }),
 
     new WebpackMd5Hash()
   ],
