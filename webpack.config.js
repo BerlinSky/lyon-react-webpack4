@@ -2,14 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 // const nodeExternals = require('webpack-node-externals');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const HtmlWebPackPlugin = require("html-webpack-plugin");
-const WebpackMd5Hash = require("webpack-md5-hash");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+// const WebpackMd5Hash = require("webpack-md5-hash");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const providerPlugin = new webpack.ProvidePlugin({
-  $: 'jquery',
-  jQuery: 'jquery'
-})
+// const providerPlugin = new webpack.ProvidePlugin({
+//   $: 'jquery',
+//   jQuery: 'jquery'
+// })
 
 const cleanWebPackPlugin = new CleanWebpackPlugin([path.resolve(__dirname, 'dist')])
 
@@ -186,7 +186,7 @@ module.exports = {
   },
 
   plugins: [
-    providerPlugin,
+    // providerPlugin,
     cleanWebPackPlugin,
     new webpack.HotModuleReplacementPlugin(),
 
@@ -195,14 +195,14 @@ module.exports = {
       // filename: "main.[contenthash].css"
     // }),
 
-    // new HtmlWebPackPlugin({
-    //   favicon: 'app/favicon.png',
-    //   // hash: true,
-    //   template: './app/index.html',
-    //   filename: 'index.html',
-    // }),
+    new HtmlWebPackPlugin({
+      favicon: 'app/favicon.png',
+      // hash: true,
+      template: './src/index.html',
+      filename: 'index.html',
+    }),
 
-    new WebpackMd5Hash()
+    // new WebpackMd5Hash()
   ],
 
   watch: true,
@@ -210,9 +210,9 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     // compress: true,
-    host: 'localhost',
-    // port: 9090,
-    port: 8080,
+    hot: true,
+    // host: 'localhost',
+    port: 8082,
     // openPage: 'index.html',
     open: 'Google Chrome',
     watchContentBase: true,
