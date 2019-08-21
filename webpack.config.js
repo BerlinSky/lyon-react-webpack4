@@ -23,6 +23,7 @@ const entryConfig = {
 
 const outputConfig = {
   path: path.resolve(__dirname, 'dist'),
+  publicPath: '/',
   filename: '[name].js'
   // filename: 'bundle.[name].[chunkhash].js'
   // filename: '[name].[chunkhash].js'
@@ -187,11 +188,12 @@ module.exports = {
   plugins: [
     providerPlugin,
     cleanWebPackPlugin,
+    new webpack.HotModuleReplacementPlugin(),
 
-    new MiniCssExtractPlugin({
-      filename: "main.css"
+    // new MiniCssExtractPlugin({
+    //   filename: "main.css"
       // filename: "main.[contenthash].css"
-    }),
+    // }),
 
     // new HtmlWebPackPlugin({
     //   favicon: 'app/favicon.png',
