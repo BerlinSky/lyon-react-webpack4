@@ -11,7 +11,7 @@ const entryConfig = {
   // vendor: ['jquery', 'ramda'],
   main: [
     path.resolve(__dirname, 'src/index.js'),
-    // path.resolve(__dirname, 'app/sass/main.scss')
+    path.resolve(__dirname, 'src/sass/main.scss')
   ]
 }
 
@@ -184,10 +184,10 @@ module.exports = {
     cleanWebPackPlugin,
     new webpack.HotModuleReplacementPlugin(),
 
-    // new MiniCssExtractPlugin({
-    //   filename: "main.css"
+    new MiniCssExtractPlugin({
+      filename: "main.css"
       // filename: "main.[contenthash].css"
-    // }),
+    }),
 
     new HtmlWebPackPlugin({
       favicon: 'app/favicon.png',
