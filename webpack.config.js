@@ -5,16 +5,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 // const WebpackMd5Hash = require("webpack-md5-hash");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-// const providerPlugin = new webpack.ProvidePlugin({
-//   $: 'jquery',
-//   jQuery: 'jquery'
-// })
-
 const cleanWebPackPlugin = new CleanWebpackPlugin([path.resolve(__dirname, 'dist')])
 
 const entryConfig = {
-  vendor: ['jquery', 'ramda'],
+  // vendor: ['jquery', 'ramda'],
   main: [
     path.resolve(__dirname, 'src/index.js'),
     // path.resolve(__dirname, 'app/sass/main.scss')

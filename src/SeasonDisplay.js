@@ -1,4 +1,4 @@
-import './SeasonDisplay.scss';
+// import './SeasonDisplay.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -13,17 +13,13 @@ const seasonConfig = {
     iconName: 'snowflake'
   }
 };
-  
+
 const getSeason = (lat, month) => {
   if (month > 2 && month < 9) {
     return lat > 0 ? 'summer' : 'winter';
   } else {
     return lat > 0 ? 'winter' : 'summer';
   }
-};
-
-SeasonDisplay.propTypes = {
-  lat: PropTypes.string,
 };
 
 const SeasonDisplay = props => {
@@ -37,6 +33,10 @@ const SeasonDisplay = props => {
       <i className={`icon-right massive ${iconName} icon`} />
     </div>
   );
+};
+
+SeasonDisplay.propTypes = {
+  lat: PropTypes.number,
 };
 
 export default SeasonDisplay;
